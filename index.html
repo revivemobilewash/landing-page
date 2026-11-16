@@ -55,10 +55,10 @@ h2{font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-height:1.1;f
 /* Hero */
 .hero{position:relative;min-height:94svh;display:flex;flex-direction:column;justify-content:flex-start;padding:max(20px,env(safe-area-inset-top)) 0 0;color:#fff;overflow:hidden;isolation:isolate}
 .hero{background:#000}
-.hero-bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.hero-bg img{width:100%;height:124%;margin-top:-42%;object-fit:cover;object-position:60% 60%}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,#000 0%,#000 28%,rgba(0,0,0,.45) 58%,rgba(0,0,0,.3) 100%)}
-@media(min-width:900px){.hero-bg img{object-position:center;height:100%;margin-top:0}}
+.hero-bg{position:absolute;inset:0 0 40% 0;z-index:-2;overflow:hidden;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:4% 50%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,#000 0%,#000 38%,rgba(0,0,0,.55) 52%,rgba(0,0,0,.1) 66%,rgba(0,0,0,.35) 100%)}
+@media(min-width:900px){.hero-bg{inset:0;-webkit-mask-image:none;mask-image:none}.hero-bg img{object-position:30% 50%}}
 .hero-top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px;border-bottom:1px solid rgba(255,255,255,.28)}
 .brand img{filter:brightness(0) invert(1);width:clamp(120px,30vw,168px);height:auto;display:block}
 .call{direction:ltr;color:#fff;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.12em;padding:10px 16px;border:1px solid rgba(255,255,255,.55)}
@@ -127,7 +127,7 @@ h2{font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-height:1.1;f
 
 /* Photo band */
 .band{padding:0;position:relative;height:clamp(260px,62vw,560px);overflow:hidden;background:#000}
-.band img{width:100%;height:100%;object-fit:cover;object-position:35% 50%;display:block}
+.band img{width:100%;height:100%;object-fit:cover;object-position:62% 60%;display:block}
 .band::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),transparent 50%)}
 
 /* Contact */
@@ -166,7 +166,7 @@ footer a{color:#fff;text-underline-offset:3px}
 <body>
 <main>
   <section class="hero" id="top">
-    <div class="hero-bg"><img src="media/hero.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async"></div>
+    <div class="hero-bg"><img src="media/hero.jpg" alt="שטיפת קצף ידנית עם מברשת דיטיילינג על רכב" width="2400" height="1100" fetchpriority="high" decoding="async"></div>
     <header class="hero-top"><div class="wrap bar"><a href="#top" class="brand" aria-label="Revive Premium Mobile Wash"><img src="media/logo-crop.png" alt="Revive Premium Mobile Wash" width="500" height="200"></a><a class="call" href="tel:+972559760133">055-976-0133</a></div></header>
     <div class="hero-main"><div class="wrap">
       <h1><span>שטיפת רכב בקיסריה</span><span>דיטיילינג עד הבית</span></h1>
@@ -213,7 +213,7 @@ footer a{color:#fff;text-underline-offset:3px}
     </div>
   </section>
 
-  <section class="band"><img src="media/foam.jpg" alt="שטיפת קצף ידנית עם מברשת דיטיילינג על רכב" width="1800" height="780" loading="lazy" decoding="async"></section>
+  <section class="band"><img src="media/badge.jpg" alt="טיפות מים על סמל מרצדס לאחר דיטיילינג" width="1800" height="1200" loading="lazy" decoding="async"></section>
 
   <section class="how">
     <div class="wrap">
