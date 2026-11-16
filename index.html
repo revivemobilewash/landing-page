@@ -53,16 +53,17 @@ h2{font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-height:1.1;f
 .cta.on-dark:hover{background:transparent;color:#fff}
 
 /* Hero */
-.hero{position:relative;min-height:94svh;display:flex;flex-direction:column;justify-content:space-between;padding:max(20px,env(safe-area-inset-top)) 0 0;color:#fff;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:-2}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:22% center;filter:grayscale(.15) contrast(1.05)}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.35) 100%)}
-@media(min-width:900px){.hero-bg img{object-position:center}}
+.hero{position:relative;min-height:94svh;display:flex;flex-direction:column;justify-content:flex-start;padding:max(20px,env(safe-area-inset-top)) 0 0;color:#fff;overflow:hidden;isolation:isolate}
+.hero{background:#000}
+.hero-bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-bg img{width:100%;height:124%;margin-top:-42%;object-fit:cover;object-position:60% 60%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,#000 0%,#000 28%,rgba(0,0,0,.45) 58%,rgba(0,0,0,.3) 100%)}
+@media(min-width:900px){.hero-bg img{object-position:center;height:100%;margin-top:0}}
 .hero-top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px;border-bottom:1px solid rgba(255,255,255,.28)}
 .brand img{filter:brightness(0) invert(1);width:clamp(120px,30vw,168px);height:auto;display:block}
 .call{direction:ltr;color:#fff;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.12em;padding:10px 16px;border:1px solid rgba(255,255,255,.55)}
 .call:hover{background:#fff;color:var(--ink)}
-.hero-main{padding-bottom:40px}
+.hero-main{padding-bottom:40px;margin-top:auto}
 .hero h1{font-family:var(--display);font-size:clamp(44px,11.4vw,96px);line-height:1;font-weight:900;text-wrap:balance;margin-bottom:22px}
 .hero h1 span{display:block}
 .hero h1 span+span{font-weight:400;opacity:.9;margin-top:4px}
@@ -124,8 +125,14 @@ h2{font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-height:1.1;f
 .tile{break-inside:avoid;margin-bottom:12px;overflow:hidden;background:var(--soft)}
 .tile img,.tile video{display:block;width:100%;height:auto}
 
+/* Photo band */
+.band{padding:0;position:relative;height:clamp(260px,62vw,560px);overflow:hidden;background:#000}
+.band img{width:100%;height:100%;object-fit:cover;object-position:35% 50%;display:block}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),transparent 50%)}
+
 /* Contact */
-.contact{background:var(--ink);color:#fff}
+.contact{background:var(--ink);color:#fff;position:relative;isolation:isolate}
+.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.9)),url(media/drops.jpg) center/cover}
 .contact h2{margin-bottom:28px}
 .contact .cta{width:100%}
 @media(min-width:700px){.contact .cta{width:auto;min-width:340px}}
@@ -205,6 +212,8 @@ footer a{color:#fff;text-underline-offset:3px}
       <a class="seeall" href="https://g.page/r/CUTS5tJxAzMOEBM/review" target="_blank" rel="noopener">לכל הביקורות בגוגל ←</a>
     </div>
   </section>
+
+  <section class="band"><img src="media/foam.jpg" alt="שטיפת קצף ידנית עם מברשת דיטיילינג על רכב" width="1800" height="780" loading="lazy" decoding="async"></section>
 
   <section class="how">
     <div class="wrap">
