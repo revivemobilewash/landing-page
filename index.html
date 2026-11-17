@@ -105,8 +105,6 @@ h2{color:#fff;font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-h
   .hero::after{background:linear-gradient(to top,#000 0%,rgba(0,0,0,0) 30%)}
   .hero-main{padding-bottom:56px}
   .hero-main .wrap>*{max-width:360px}
-  .hero.vid .hero-bg{inset:0 auto 0 0;width:46%;-webkit-mask-image:linear-gradient(to left,transparent 0%,#000 32%);mask-image:linear-gradient(to left,transparent 0%,#000 32%)}
-  .hero.vid::after{background:linear-gradient(to top,#000 0%,rgba(0,0,0,0) 26%)}
   .hero .cta{min-width:0;width:100%}
 }
 .hero-main{padding-bottom:40px;margin-top:auto}
@@ -117,6 +115,10 @@ h2{color:#fff;font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-h
 .hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .hero.vid .hero-bg{inset:0;-webkit-mask-image:none;mask-image:none}
 .hero.vid::after{background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.2) 34%,rgba(0,0,0,0) 56%,rgba(0,0,0,.18) 72%,rgba(0,0,0,.62) 100%)}
+@media(min-width:900px){
+  .hero.vid .hero-bg{inset:0 auto 0 0;width:46%;-webkit-mask-image:linear-gradient(to left,transparent 0%,#000 32%);mask-image:linear-gradient(to left,transparent 0%,#000 32%)}
+  .hero.vid::after{background:linear-gradient(to top,#000 0%,rgba(0,0,0,0) 26%)}
+}
 .hero .cta{width:100%}
 @media(min-width:700px){.hero .cta{width:auto;min-width:340px}}
 .areas{border-top:1px solid rgba(255,255,255,.28);padding-block:16px;font-size:13px;letter-spacing:.06em;color:rgba(255,255,255,.78)}
