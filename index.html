@@ -25,11 +25,12 @@
 <link rel="preload" as="image" href="media/hero.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700;800&family=Jost:wght@300;400&display=swap">
 <style>
 :root{
   --ink:#fff; --paper:#000; --soft:#0e0e0e; --surf2:#151515; --rule:#2b2b2b; --mute:#a3a3a3;
   --font:"Heebo","SF Hebrew","Segoe UI","Arial Hebrew",Arial,sans-serif;
+  --logo:"Jost","Helvetica Neue",Arial,sans-serif;
   --display:"Frank Ruhl Libre","David Libre",Georgia,"Times New Roman",serif;
 }
 *{box-sizing:border-box;margin:0}
@@ -56,8 +57,9 @@ h2{color:#fff;font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-h
 .site-header{position:sticky;top:0;z-index:60;background:#000;border-bottom:1px solid #222;color:#fff;padding-top:env(safe-area-inset-top)}
 .hbar{max-width:1280px;margin-inline:auto;height:72px;padding-inline:24px;display:flex;align-items:center;gap:clamp(20px,3.5vw,48px)}
 .wordmark{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:#fff;line-height:1;direction:ltr;flex:none}
-.wordmark b{font-family:var(--display);font-weight:900;font-size:27px;letter-spacing:.2em;padding-inline-start:.2em}
-.wordmark small{font-family:var(--font);font-size:7.5px;letter-spacing:.36em;font-weight:500;opacity:.75;margin-top:5px;padding-inline-start:.2em}
+.wordmark b{font-family:var(--logo);font-weight:300;font-size:22px;letter-spacing:.5em;padding-inline-start:.5em}
+.wordmark small{font-family:var(--logo);font-size:7px;letter-spacing:.5em;font-weight:300;opacity:.7;margin-top:6px;padding-inline-start:.5em}
+.site-header .wordmark small{display:none}
 .mainnav{display:none;align-items:center;gap:clamp(18px,2.6vw,38px)}
 .mainnav a,.navbtn{font:500 17px/1 var(--font);color:#fff;text-decoration:none;background:none;border:0;padding:26px 0;cursor:pointer;position:relative}
 .mainnav a::after,.navbtn::after{content:"";position:absolute;inset-inline:0;bottom:18px;height:2px;background:#fff;transform:scaleX(0);transition:transform .2s}
@@ -101,16 +103,19 @@ h2{color:#fff;font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-h
   .hero-bg{inset:0 auto 0 0;width:60%;-webkit-mask-image:linear-gradient(to left,transparent 0%,#000 38%);mask-image:linear-gradient(to left,transparent 0%,#000 38%)}
   .hero-bg img{object-position:0% 60%}
   .hero::after{background:linear-gradient(to top,#000 0%,rgba(0,0,0,0) 30%)}
-  .hero-main{margin-block:auto;padding-block:48px}
-  .hero-main .wrap>*{max-width:54%}
-  .hero h1{font-size:clamp(48px,5.6vw,76px)}
+  .hero-main{padding-bottom:56px}
+  .hero-main .wrap>*{max-width:360px}
+  .hero.vid .hero-bg{width:100%}
   .hero .cta{min-width:0;width:100%}
+  .hero.vid .hero-bg{-webkit-mask-image:none;mask-image:none}
 }
 .hero-main{padding-bottom:40px;margin-top:auto}
-.hero h1{font-family:var(--display);font-size:clamp(44px,11.4vw,96px);line-height:1;font-weight:900;text-wrap:balance;margin-bottom:22px}
-.hero h1 span{display:block}
-.hero h1 span+span{font-weight:400;opacity:.9;margin-top:4px}
-.hero .sub{font-size:clamp(17px,4.4vw,20px);font-weight:400;color:rgba(255,255,255,.88);max-width:28em;margin-bottom:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.4)}
+.hero-copy{padding-top:30px}
+.hero h1{font:300 clamp(17px,4.8vw,22px)/1.5 var(--font);letter-spacing:.03em;color:#fff;text-shadow:0 1px 18px rgba(0,0,0,.55)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero.vid .hero-bg{inset:0;-webkit-mask-image:none;mask-image:none}
+.hero.vid::after{background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,0) 38%,rgba(0,0,0,0) 68%,rgba(0,0,0,.4) 100%)}
 .hero .cta{width:100%}
 @media(min-width:700px){.hero .cta{width:auto;min-width:340px}}
 .areas{border-top:1px solid rgba(255,255,255,.28);padding-block:16px;font-size:13px;letter-spacing:.06em;color:rgba(255,255,255,.78)}
@@ -188,7 +193,7 @@ h2{color:#fff;font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-h
 footer{background:#000;color:rgba(255,255,255,.72);padding:8px 0 calc(110px + env(safe-area-inset-bottom));font-size:15px}
 footer .wrap{border-top:1px solid rgba(255,255,255,.2);padding-top:40px}
 .foot-mark{display:inline-flex;margin-bottom:20px}
-.foot-mark b{font-size:30px}
+.foot-mark b{font-size:26px}
 footer p{margin-bottom:6px}
 footer a{color:#fff;text-underline-offset:3px}
 .blessing{font-family:var(--display);color:#fff;font-size:clamp(20px,5vw,26px);font-weight:700;margin-bottom:24px}
@@ -244,10 +249,9 @@ footer a{color:#fff;text-underline-offset:3px}
 
 <main>
   <section class="hero" id="top">
-    <div class="hero-bg"><img src="media/hero.jpg" alt="שטיפת קצף ידנית עם מברשת דיטיילינג על רכב" width="2400" height="1100" fetchpriority="high" decoding="async"></div>
-        <div class="hero-main"><div class="wrap">
-      <h1><span>שטיפת רכב בקיסריה</span><span>דיטיילינג עד הבית</span></h1>
-      <p class="sub">ניקיון עמוק, ברק של חדש. מגיעים אליכם עם כל הציוד.</p>
+    <div class="hero-bg"><img src="media/hero.jpg" alt="שטיפת קצף ידנית עם מברשת דיטיילינג על רכב" width="2400" height="1100" fetchpriority="high" decoding="async"><video id="heroVideo" muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"><source src="media/hero.mp4" type="video/mp4"></video></div>
+    <div class="wrap hero-copy"><h1><span class="sr-only">שטיפת רכב – </span>דיטיילינג עד הבית בקיסריה והסביבה</h1></div>
+    <div class="hero-main"><div class="wrap">
       <a class="cta on-dark" id="hero-cta" href="https://revive-ops-job-manag-qlzh.bolt.host/book.html">לתיאום עכשיו
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
     </div></div>
@@ -403,6 +407,13 @@ footer a{color:#fff;text-underline-offset:3px}
     });
   });
 
+
+  // Hero video: when media/hero.mp4 exists, switch to full-bleed video
+  var hv=document.getElementById('heroVideo');
+  if(hv&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    hv.addEventListener('playing',function(){hv.closest('.hero').classList.add('vid')});
+    var hp=hv.play();if(hp&&hp.catch)hp.catch(function(){});
+  }
 
   // Header mega menu
   var mm=document.getElementById('megamenu'),mb=document.getElementById('menuBtn'),bg=document.getElementById('burger');
