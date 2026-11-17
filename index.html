@@ -33,7 +33,7 @@
   --display:"Frank Ruhl Libre","David Libre",Georgia,"Times New Roman",serif;
 }
 *{box-sizing:border-box;margin:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:76px}
 body{font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px}
 a{color:inherit}
 :focus-visible{outline:2px solid currentColor;outline-offset:4px}
@@ -52,17 +52,61 @@ h2{font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-height:1.1;f
 .cta.on-dark{background:#fff;color:var(--ink);border-color:#fff}
 .cta.on-dark:hover{background:transparent;color:#fff}
 
+
+/* Site header: solid black bar + mega panel */
+.site-header{position:sticky;top:0;z-index:60;background:#000;color:#fff;padding-top:env(safe-area-inset-top)}
+.hbar{max-width:1280px;margin-inline:auto;height:72px;padding-inline:24px;display:flex;align-items:center;gap:clamp(20px,3.5vw,48px)}
+.wordmark{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:#fff;line-height:1;direction:ltr;flex:none}
+.wordmark b{font-family:var(--display);font-weight:900;font-size:27px;letter-spacing:.2em;padding-inline-start:.2em}
+.wordmark small{font-family:var(--font);font-size:7.5px;letter-spacing:.36em;font-weight:500;opacity:.75;margin-top:5px;padding-inline-start:.2em}
+.mainnav{display:none;align-items:center;gap:clamp(18px,2.6vw,38px)}
+.mainnav a,.navbtn{font:500 17px/1 var(--font);color:#fff;text-decoration:none;background:none;border:0;padding:26px 0;cursor:pointer;position:relative}
+.mainnav a::after,.navbtn::after{content:"";position:absolute;inset-inline:0;bottom:18px;height:2px;background:#fff;transform:scaleX(0);transition:transform .2s}
+.mainnav a:hover::after,.navbtn:hover::after,.navbtn[aria-expanded=true]::after{transform:scaleX(1)}
+.navbtn[aria-expanded=true]{font-weight:700}
+.navbtn::before{content:"";display:inline-block;width:7px;height:7px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translateY(-3px);margin-inline-end:9px;transition:transform .2s}
+.navbtn[aria-expanded=true]::before{transform:rotate(-135deg) translateY(-1px)}
+.hact{margin-inline-start:auto;display:flex;align-items:center;gap:6px}
+.hloc,.hcall,.burger{display:inline-flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-weight:600;font-size:16px;min-height:44px;padding:0 10px;background:none;border:0;cursor:pointer}
+.hloc span{display:none}
+.hloc svg,.hcall svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hloc:hover,.hcall:hover{opacity:.75}
+.burger{flex-direction:column;justify-content:center;gap:6px;width:44px;padding:0}
+.burger span{display:block;width:24px;height:2px;background:#fff;transition:transform .2s,opacity .2s}
+.burger[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}
+.burger[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+.mega{position:absolute;inset-inline:0;top:100%;background:#000;border-top:1px solid rgba(255,255,255,.18);max-height:calc(100svh - 72px);overflow:auto;box-shadow:0 40px 60px -30px rgba(0,0,0,.6)}
+.mega[hidden]{display:none}
+.mega .cols{display:grid;gap:30px;padding-block:32px 40px}
+.mega h3{font:500 15px/1 var(--font);color:rgba(255,255,255,.62);margin-bottom:18px;letter-spacing:.04em}
+.mega ul{list-style:none;padding:0;display:grid;gap:4px}
+.mega a{display:inline-block;font:500 clamp(20px,2.2vw,26px)/1.2 var(--font);color:#fff;text-decoration:none;padding:9px 6px;margin-inline:-6px}
+.mega a:hover{text-decoration:underline;text-underline-offset:6px}
+.mega a:focus-visible{outline:3px solid #fff;outline-offset:1px}
+@media(min-width:900px){
+  .mainnav{display:flex}
+  .burger{display:none}
+  .hloc span{display:inline}
+  .mega .cols{grid-template-columns:repeat(3,1fr);gap:48px;padding-block:56px 72px}
+  .mega{min-height:300px}
+}
+
 /* Hero */
-.hero{position:relative;min-height:94svh;display:flex;flex-direction:column;justify-content:flex-start;padding:max(20px,env(safe-area-inset-top)) 0 0;color:#fff;overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:calc(96svh - 72px);display:flex;flex-direction:column;justify-content:flex-start;padding:0;color:#fff;overflow:hidden;isolation:isolate}
 .hero{background:#000}
 .hero-bg{position:absolute;inset:0 0 40% 0;z-index:-2;overflow:hidden;-webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:4% 50%}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,#000 0%,#000 38%,rgba(0,0,0,.55) 52%,rgba(0,0,0,.1) 66%,rgba(0,0,0,.35) 100%)}
-@media(min-width:900px){.hero-bg{inset:0;-webkit-mask-image:none;mask-image:none}.hero-bg img{object-position:30% 50%}}
-.hero-top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px;border-bottom:1px solid rgba(255,255,255,.28)}
-.brand img{filter:brightness(0) invert(1);width:clamp(120px,30vw,168px);height:auto;display:block}
-.call{direction:ltr;color:#fff;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.12em;padding:10px 16px;border:1px solid rgba(255,255,255,.55)}
-.call:hover{background:#fff;color:var(--ink)}
+@media(min-width:900px){
+  .hero{min-height:calc(100svh - 72px)}
+  .hero-bg{inset:0 auto 0 0;width:60%;-webkit-mask-image:linear-gradient(to left,transparent 0%,#000 38%);mask-image:linear-gradient(to left,transparent 0%,#000 38%)}
+  .hero-bg img{object-position:0% 60%}
+  .hero::after{background:linear-gradient(to top,#000 0%,rgba(0,0,0,0) 30%)}
+  .hero-main{margin-block:auto;padding-block:48px}
+  .hero-main .wrap>*{max-width:54%}
+  .hero h1{font-size:clamp(48px,5.6vw,76px)}
+  .hero .cta{min-width:0;width:100%}
+}
 .hero-main{padding-bottom:40px;margin-top:auto}
 .hero h1{font-family:var(--display);font-size:clamp(44px,11.4vw,96px);line-height:1;font-weight:900;text-wrap:balance;margin-bottom:22px}
 .hero h1 span{display:block}
@@ -144,7 +188,8 @@ h2{font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-height:1.1;f
 
 footer{background:var(--ink);color:rgba(255,255,255,.72);padding:8px 0 calc(110px + env(safe-area-inset-bottom));font-size:15px}
 footer .wrap{border-top:1px solid rgba(255,255,255,.2);padding-top:40px}
-footer img{filter:brightness(0) invert(1);width:140px;height:auto;display:block;margin-bottom:18px}
+.foot-mark{display:inline-flex;margin-bottom:20px}
+.foot-mark b{font-size:30px}
 footer p{margin-bottom:6px}
 footer a{color:#fff;text-underline-offset:3px}
 .blessing{font-family:var(--display);color:#fff;font-size:clamp(20px,5vw,26px);font-weight:700;margin-bottom:24px}
@@ -164,11 +209,44 @@ footer a{color:#fff;text-underline-offset:3px}
 </script>
 </head>
 <body>
+<header class="site-header" id="siteHeader">
+  <div class="hbar">
+    <a class="wordmark" href="#top" aria-label="Revive Premium Mobile Wash"><b>REVIVE</b><small>PREMIUM MOBILE WASH</small></a>
+    <nav class="mainnav" aria-label="ניווט ראשי">
+      <button class="navbtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="megamenu">הכירו אותנו</button>
+      <a href="#reviews">ביקורות</a>
+      <a href="#how">איך זה עובד</a>
+      <a href="#reels">רילס</a>
+    </nav>
+    <div class="hact">
+      <a class="hloc" href="#areas-list" data-open-menu><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>קיסריה והסביבה</span></a>
+      <a class="hcall" href="tel:+972559760133" aria-label="התקשרו"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></a>
+      <button class="burger" id="burger" type="button" aria-label="תפריט" aria-expanded="false" aria-controls="megamenu"><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mega" id="megamenu" hidden>
+    <div class="wrap cols" style="max-width:1280px">
+      <div><h3>הכירו אותנו</h3><ul>
+        <li><a href="#reviews">ביקורות לקוחות</a></li>
+        <li><a href="#how">איך זה עובד</a></li>
+        <li><a href="#reels">רילס מהאינסטגרם</a></li>
+        <li><a href="#book">צרו קשר</a></li></ul></div>
+      <div><h3>תיאום</h3><ul>
+        <li><a href="https://revive-ops-job-manag-qlzh.bolt.host/book.html">לתיאום עכשיו</a></li>
+        <li><a href="https://wa.me/972559760133" rel="noopener">וואטסאפ</a></li>
+        <li><a href="tel:+972559760133" dir="ltr" style="text-align:right">055-976-0133</a></li>
+        <li><a href="https://instagram.com/revive_mobile.wash" rel="noopener">אינסטגרם</a></li></ul></div>
+      <div id="areas-list"><h3>אזורי שירות</h3><ul>
+        <li><a href="#book">קיסריה</a></li><li><a href="#book">חדרה</a></li><li><a href="#book">אור עקיבא</a></li>
+        <li><a href="#book">זכרון יעקב</a></li><li><a href="#book">פרדס חנה-כרכור</a></li><li><a href="#book">בנימינה</a></li></ul></div>
+    </div>
+  </div>
+</header>
+
 <main>
   <section class="hero" id="top">
     <div class="hero-bg"><img src="media/hero.jpg" alt="שטיפת קצף ידנית עם מברשת דיטיילינג על רכב" width="2400" height="1100" fetchpriority="high" decoding="async"></div>
-    <header class="hero-top"><div class="wrap bar"><a href="#top" class="brand" aria-label="Revive Premium Mobile Wash"><img src="media/logo-crop.png" alt="Revive Premium Mobile Wash" width="500" height="200"></a><a class="call" href="tel:+972559760133">055-976-0133</a></div></header>
-    <div class="hero-main"><div class="wrap">
+        <div class="hero-main"><div class="wrap">
       <h1><span>שטיפת רכב בקיסריה</span><span>דיטיילינג עד הבית</span></h1>
       <p class="sub">ניקיון עמוק, ברק של חדש. מגיעים אליכם עם כל הציוד.</p>
       <a class="cta on-dark" id="hero-cta" href="https://revive-ops-job-manag-qlzh.bolt.host/book.html">לתיאום עכשיו
@@ -184,7 +262,7 @@ footer a{color:#fff;text-underline-offset:3px}
     </div>
   </section>
 
-  <section class="reels" aria-labelledby="r-h">
+  <section class="reels" id="reels" aria-labelledby="r-h">
     <div class="wrap">
       <div>
         <div class="kicker">מהאינסטגרם שלנו</div>
@@ -195,7 +273,7 @@ footer a{color:#fff;text-underline-offset:3px}
     <div class="rail" id="rail" tabindex="0" aria-label="רילס מאינסטגרם, גללו הצידה"></div>
   </section>
 
-  <section class="community">
+  <section class="community" id="reviews">
     <div class="wrap">
       <div class="kicker">ביקורות</div>
       <h2>מה הלקוחות אומרים</h2>
@@ -215,7 +293,7 @@ footer a{color:#fff;text-underline-offset:3px}
 
   <section class="band"><img src="media/badge.jpg" alt="טיפות מים על סמל מרצדס לאחר דיטיילינג" width="1800" height="1200" loading="lazy" decoding="async"></section>
 
-  <section class="how">
+  <section class="how" id="how">
     <div class="wrap">
       <div class="kicker">איך זה עובד</div>
       <h2>אתם בבית. אנחנו מגיעים.</h2>
@@ -255,7 +333,7 @@ footer a{color:#fff;text-underline-offset:3px}
 <footer>
   <div class="wrap">
     <p class="blessing">״שהכל נהיה בדברו״</p>
-    <img src="media/logo.png" alt="Revive Premium Mobile Wash" width="629" height="353" loading="lazy">
+    <a class="wordmark foot-mark" href="#top" aria-label="Revive Premium Mobile Wash"><b>REVIVE</b><small>PREMIUM MOBILE WASH</small></a>
     <p><a href="tel:+972559760133" dir="ltr">055-976-0133</a></p>
     <p>Caesarea and surrounding areas</p>
     <p>קיסריה, חדרה, אור עקיבא, זכרון יעקב, פרדס חנה-כרכור, בנימינה</p>
@@ -325,6 +403,18 @@ footer a{color:#fff;text-underline-offset:3px}
       grid.appendChild(t);
     });
   });
+
+
+  // Header mega menu
+  var mm=document.getElementById('megamenu'),mb=document.getElementById('menuBtn'),bg=document.getElementById('burger');
+  function mset(o){mm.hidden=!o;mb.setAttribute('aria-expanded',o);bg.setAttribute('aria-expanded',o)}
+  function mtog(){mset(mm.hidden)}
+  mb.addEventListener('click',function(e){e.stopPropagation();mtog()});
+  bg.addEventListener('click',function(e){e.stopPropagation();mtog()});
+  document.querySelector('[data-open-menu]').addEventListener('click',function(e){e.preventDefault();e.stopPropagation();mset(true)});
+  mm.addEventListener('click',function(e){if(e.target.closest('a'))mset(false)});
+  document.addEventListener('click',function(e){if(!mm.hidden&&!e.target.closest('#siteHeader'))mset(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mm.hidden){mset(false);mb.focus()}});
 
   // Sticky CTA
   var s=document.getElementById('sticky'),h=document.getElementById('hero-cta'),b=document.getElementById('book');
