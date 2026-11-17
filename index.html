@@ -25,7 +25,7 @@
 <link rel="preload" as="image" href="media/hero.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700;800&family=Jost:wght@300;400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700;800&family=Jost:wght@300;400&family=Montserrat:wght@300&display=swap">
 <style>
 :root{
   --ink:#fff; --paper:#000; --soft:#0e0e0e; --surf2:#151515; --rule:#2b2b2b; --mute:#a3a3a3;
@@ -108,6 +108,10 @@ h2{color:#fff;font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-h
   .hero .cta{min-width:0;width:100%}
 }
 .hero-main{padding-bottom:40px;margin-top:auto}
+.hero-line{font:300 clamp(34px,9.6vw,56px)/1.12 "Montserrat","Helvetica Neue",Arial,sans-serif;letter-spacing:.01em;color:#fff;margin-bottom:30px;text-align:left;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.hero-line span{display:block}
+.hero-line span+span{margin-top:.55em}
+@media(min-width:900px){.hero-line{font-size:clamp(44px,4.8vw,68px)}.hero-main .wrap>.hero-line{max-width:none}}
 .hero-copy{padding-top:30px;width:100%}
 .hero-main{width:100%}
 .hero h1{font:700 clamp(19px,5.2vw,26px)/1.45 var(--font);letter-spacing:.01em;text-align:start;color:#fff;text-shadow:0 1px 18px rgba(0,0,0,.55)}
@@ -262,6 +266,7 @@ footer a{color:#fff;text-underline-offset:3px}
     <div class="hero-bg"><img src="media/hero.jpg" alt="שטיפת קצף ידנית עם מברשת דיטיילינג על רכב" width="2400" height="1100" fetchpriority="high" decoding="async"><video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="media/hero-poster.jpg" aria-hidden="true" tabindex="-1"><source src="media/hero.mp4" type="video/mp4"></video></div>
     <div class="wrap hero-copy"><h1><span class="sr-only">שטיפת רכב – </span>דיטיילינג עד הבית בקיסריה והסביבה</h1></div>
     <div class="hero-main"><div class="wrap">
+      <p class="hero-line" dir="ltr" lang="en"><span>Revive.</span><span>Born again in your driveway.</span></p>
       <a class="cta on-dark" id="hero-cta" href="https://revive-ops-job-manag-qlzh.bolt.host/book.html">לתיאום עכשיו
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
     </div></div>
