@@ -120,9 +120,15 @@ h2{color:#fff;font-family:var(--display);font-size:clamp(32px,6.6vw,54px);line-h
 .hero-text{margin-bottom:20px;color:rgba(255,255,255,.86);font:300 15.5px/1.85 var(--font);text-shadow:0 1px 16px rgba(0,0,0,.6)}
 .hero-text p+p{margin-top:12px}
 .hero-text .lead{font:500 clamp(19px,5vw,24px)/1.4 var(--font);color:#fff;margin-bottom:0}
-.hero-text .lead+p{margin-top:0}
+.readmore{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:6px 0;background:none;border:0;color:rgba(255,255,255,.8);font:500 14px/1 var(--font);letter-spacing:.04em;cursor:pointer}
+.readmore:hover{color:#fff}
+.readmore svg{width:18px;height:18px;transition:transform .25s}
+.readmore[aria-expanded=true] svg{transform:rotate(180deg)}
+.more-text{max-height:0;overflow:hidden;visibility:hidden;opacity:0;transition:max-height .4s ease,opacity .3s,visibility 0s .4s}
+.more-text.open{max-height:30em;visibility:visible;opacity:1;margin-top:10px;transition:max-height .4s ease,opacity .3s}
+.more-text p+p{margin-top:12px}
 .hero-text .sig{font-weight:400;font-size:14px;letter-spacing:.04em;color:rgba(255,255,255,.7);margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.3)}
-@media(max-width:899px){.hero-text p:not(.lead):not(.sig){display:none}.hero .areas{display:none}.hero-text .sig{margin-top:12px;padding-top:12px}}
+@media(max-width:899px){.hero .areas{display:none}.hero-text .sig{margin-top:12px;padding-top:12px}}
 .hero-copy{padding-top:16px;width:100%;direction:ltr}
 .hero-main{width:100%}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -278,8 +284,11 @@ footer a{color:#fff;text-underline-offset:3px}
     <div class="hero-main"><div class="wrap">
       <div class="hero-text">
         <p class="lead">מעלים את הסטנדרט בטיפוח הרכב.</p>
-        <p>ב־Revive אנחנו מתמחים בשירותי ניקוי וטיפוח רכבים ברמה גבוהה, תוך הקפדה על כל פרט, שימוש בציוד מקצועי והתאמת הטיפול לכל רכב.</p>
-        <p>אנחנו מגיעים עד הבית או מקום העבודה, ומעניקים שירות אישי, יסודי ומקצועי.</p>
+        <button class="readmore" id="readMore" type="button" aria-expanded="false" aria-controls="heroMore">קראו עוד <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="more-text" id="heroMore">
+          <p>ב־Revive אנחנו מתמחים בשירותי ניקוי וטיפוח רכבים ברמה גבוהה, תוך הקפדה על כל פרט, שימוש בציוד מקצועי והתאמת הטיפול לכל רכב.</p>
+          <p>אנחנו מגיעים עד הבית או מקום העבודה, ומעניקים שירות אישי, יסודי ומקצועי.</p>
+        </div>
         <p class="sig">Revive | סטנדרט אחר של טיפוח הרכב.</p>
       </div>
       <a class="cta on-dark" id="hero-cta" href="https://revive-ops-job-manag-qlzh.bolt.host/book.html">לתיאום עכשיו
@@ -451,6 +460,10 @@ footer a{color:#fff;text-underline-offset:3px}
     if(hs)hs.addEventListener('error',function(){hv.closest('.hero').classList.remove('vid')});
     var hp=hv.play();if(hp&&hp.catch)hp.catch(function(){});
   }
+
+  // Hero: read more
+  var rm=document.getElementById('readMore'),mt=document.getElementById('heroMore');
+  if(rm)rm.addEventListener('click',function(){var o=mt.classList.toggle('open');rm.setAttribute('aria-expanded',o);rm.firstChild.nodeValue=o?'הציגו פחות ':'קראו עוד '});
 
   // Reviews: fold long text
   document.querySelectorAll('.rcard').forEach(function(c){
