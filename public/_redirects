@@ -9,5 +9,7 @@
 /ceramic-coating          /  301
 /service                  /  301
 /service/*                /  301
-/service-areas            /  301
-/service-areas/*          /  301
+/service-areas                 /  301
+/service-areas/caesarea        /  301
+/service-areas/or-akiva        /  301
+/service-areas/binyamina        /  301

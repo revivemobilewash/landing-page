@@ -15,3 +15,18 @@ p,li{margin-bottom:12px}
 ul{padding-inline-start:22px}
 footer{border-top:1px solid #222;padding:28px 24px 60px;text-align:center;color:#8a8a8a;font-size:14px}
 footer a{color:#bbb;margin-inline:10px}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px;padding:0 28px;background:#f26a1b;color:#0a0a0a;font:700 18px/1 inherit;text-decoration:none;border:1px solid #f26a1b;margin:28px 0 10px;transition:background .2s,color .2s}
+.cta:hover{background:transparent;color:#f26a1b}
+.cta svg{width:22px;height:22px}
+.wa{display:inline-block;margin-bottom:8px;font-size:15px}
+.steps{list-style:none;padding:0;counter-reset:s;border-top:1px solid #fff;margin-top:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid #2b2b2b;margin:0}
+.steps li::before{content:"0" counter(s);font-family:"Frank Ruhl Libre",Georgia,serif;font-weight:900;font-size:26px;color:#fff;line-height:1.1}
+.steps b{color:#fff;display:block}
+details{border-bottom:1px solid #2b2b2b;padding:14px 0}
+summary{cursor:pointer;font-weight:700;color:#fff;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:left;font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin:10px 0 0}
+.near{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:6px}
