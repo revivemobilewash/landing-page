@@ -227,7 +227,8 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.2);padding-top:40px}
 footer p{margin-bottom:6px}
 footer a{color:#fff;text-underline-offset:3px}
 .blessing{font-family:var(--display);color:#fff;font-size:clamp(20px,5vw,26px);font-weight:700;margin-bottom:24px}
-.sep{display:flex;gap:24px;margin-top:16px}
+.sep{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:16px}
+.sep.legal{font-size:13px;opacity:.8;margin-top:22px}
 
 /* Sticky CTA */
 .sticky{position:fixed;inset-inline:0;bottom:0;z-index:40;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#000;border-top:1px solid var(--rule);transform:translateY(110%);transition:transform .3s ease}
@@ -386,6 +387,7 @@ footer a{color:#fff;text-underline-offset:3px}
     <p>Caesarea and surrounding areas</p>
     <p>קיסריה, חדרה, אור עקיבא, זכרון יעקב, פרדס חנה-כרכור, בנימינה</p>
     <p>בתיאום מראש בלבד · סגור בשבת</p>
+    <div class="sep legal"><a href="/privacy/">מדיניות פרטיות</a><a href="/terms/">תנאי שימוש</a><a href="/accessibility/">הצהרת נגישות</a></div>
     <div class="sep">
       <a href="https://instagram.com/revive_mobile.wash" rel="noopener">Instagram</a>
       <a href="https://maps.google.com/maps?cid=1023165327747764804" rel="noopener">Google Business</a>
